@@ -18,6 +18,7 @@ syntax on
 set background=dark
 set incsearch
 set ignorecase
+set smartcase
 
 " -----Hotkeys-----
 inoremap jj <Esc>

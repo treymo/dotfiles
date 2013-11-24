@@ -13,12 +13,15 @@ Bundle 'maciakl/vim-neatstatus'
 
 filetype plugin indent on
 
-"-----Basic Settings-----
+" -----Basic Settings-----
 syntax on
 set background=dark
 set incsearch
 set ignorecase
 set smartcase
+
+" -----Formatting-----
+set textwidth=80
 
 " -----Hotkeys-----
 inoremap jj <Esc>
@@ -28,6 +31,8 @@ nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
 set pastetoggle=<F2>
 map <F5> :setlocal spell! spelllang=en_us<CR>
+vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
+nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 
 " -----Indentation-----
 set shiftwidth=2

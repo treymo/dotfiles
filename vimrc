@@ -40,6 +40,9 @@ set softtabstop=2
 set expandtab
 set autoindent
 
+" -----Language Settings -----
+au BufNewFile,BufRead *.xm setlocal ft=objc
+
 " -----Status Bar -----
 set laststatus=2
 

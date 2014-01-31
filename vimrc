@@ -36,7 +36,7 @@ nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 
 " -----Indentation-----
 set shiftwidth=2
-set softtabstop=2
+set tabstop=2
 set expandtab
 set autoindent
 

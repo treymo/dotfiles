@@ -16,6 +16,7 @@ filetype plugin indent on
 " -----Basic Settings-----
 syntax on
 set background=dark
+set backspace=2
 set incsearch
 set ignorecase
 set smartcase
@@ -23,7 +24,7 @@ set smartcase
 " -----Formatting-----
 set textwidth=80
 
-" -----Hotkeys-----
+" -----Map Keys-----
 inoremap jj <Esc>
 nmap <C-J> <C-W>j<C-W>_
 nmap <C-K> <C-W>k<C-W>_

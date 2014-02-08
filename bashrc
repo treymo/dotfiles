@@ -12,3 +12,4 @@ unamestr=$(uname)
 if [[ "$unamestr" == 'Darwin' ]]; then
   source ~/.bashrc_osx
 fi
+export PATH=$HOME/local/bin:$PATH

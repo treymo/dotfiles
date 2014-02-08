@@ -1,0 +1,11 @@
+[core]
+	editor = vim
+	excludesfile = /home/trey/.gitignore
+[user]
+	name = Trey Moore
+	email = trey.mo@gmail.com
+[merge]
+	tool = vimdiff
+[color]
+	branch = true
+	status = true

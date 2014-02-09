@@ -9,3 +9,4 @@
 [color]
 	branch = true
 	status = true
+	ui = auto

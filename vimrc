@@ -6,10 +6,13 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
+Bundle 'maciakl/vim-neatstatus'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-rails'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'maciakl/vim-neatstatus'
 
 filetype plugin indent on
 
@@ -23,6 +26,10 @@ set smartcase
 
 " -----Formatting-----
 set textwidth=80
+" Highlight trailing whitespace
+au VimEnter,ColorScheme * highlight ExtraWhitespace guibg=red ctermbg=red
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " -----Map Keys-----
 inoremap jj <Esc>
@@ -34,6 +41,8 @@ set pastetoggle=<F2>
 map <F5> :setlocal spell! spelllang=en_us<CR>
 vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
+let mapleader = ","
+nmap <leader>ne :NERDTree<cr>
 
 " -----Indentation-----
 set shiftwidth=2

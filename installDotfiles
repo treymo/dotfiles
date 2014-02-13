@@ -28,8 +28,20 @@ for file in $files; do
     if [ -f $file ]
       then
         echo "Moving ~/.$file to ~/dotfiles_old/."
-        mv ~/.$file ~/dotfiles_old/
+        mv ~/.$file $olddir
     fi
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+
+# Install .vim directory
+if [ -d ~/.vim ]
+  then
+    echo "Moving ~/.vim to ~/dotfiles_old/."
+    mv ~/.vim $olddir
+fi
+git submodule update --init --recursive
+ln -s $dir/.vim ~/.vim
+cd $dir/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer

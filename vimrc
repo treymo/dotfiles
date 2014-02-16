@@ -7,6 +7,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'maciakl/vim-neatstatus'
+Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -26,6 +27,7 @@ set smartcase
 
 " -----Formatting-----
 set textwidth=80
+au FileType java setlocal textwidth=100
 " Highlight trailing whitespace
 au VimEnter,ColorScheme * highlight ExtraWhitespace guibg=red ctermbg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/

@@ -10,3 +10,9 @@
 	branch = true
 	status = true
 	ui = auto
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool

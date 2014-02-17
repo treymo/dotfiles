@@ -19,7 +19,13 @@ Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on
 
+" -----Autocmd-----
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC "Source the vimrc file on save
+endif
+
 " -----Basic Settings-----
+colorscheme elflord
 syntax on
 set background=dark
 set backspace=2

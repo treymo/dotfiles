@@ -21,7 +21,7 @@ filetype plugin indent on
 
 " -----Autocmd-----
 if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC "Source the vimrc file on save
+  au bufwritepost .vimrc source $MYVIMRC "Source the vimrc file on save
 endif
 
 " -----Basic Settings-----
@@ -56,12 +56,14 @@ nmap <leader>ne :NERDTree<cr>
 
 " -----Indentation-----
 set shiftwidth=2
+set softtabstop=2
 set tabstop=2
 set expandtab
 set autoindent
 
-" -----Language Settings -----
+" -----Language Specific Settings -----
 au BufNewFile,BufRead *.xm setlocal ft=objc
+au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 
 " -----Status Bar -----
 set laststatus=2
@@ -72,3 +74,6 @@ set nohlsearch " highlight search results
 
 " -----Windows-----
 set wmh=0
+
+" -----Custom Functions-----
+:command! DTWS :%s/\s\+$//g

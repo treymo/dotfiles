@@ -1,5 +1,6 @@
 # Aliases
 alias ll='ls -al'
+alias tmux="TERM=screen-256color-bce tmux" # Fix colors in tmux
 
 # Visual
 export CLICOLOR=1

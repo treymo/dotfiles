@@ -1,6 +1,7 @@
 # Path
 export PATH=$PATH:/usr/local/opt/ruby/bin
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/git/bin:/usr/local/sbin:$PATH
 
 # OSX Git completion
 source ~/.git-completion.bash

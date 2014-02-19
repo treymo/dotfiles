@@ -16,5 +16,6 @@
 	prompt = false
 [alias]
 	d = difftool
+	st = status
 [push]
 	default = simple

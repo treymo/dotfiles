@@ -3,13 +3,10 @@ alias ll='ls -al'
 alias tmux="TERM=screen-256color-bce tmux" # Fix colors in tmux
 
 # Prompt
-function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+function git_branch_name() {
+  echo $(git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/');
 }
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
-}
-export PS1="\[\e[00;32m\]\u\[\e[0m\]\[\e[00;37m\]@\h:\[\e[0m\]\[\e[00;36m\][\w]\[\e[0m\]\[\e[00;37m\] $(parse_git_branch)\$ "
+export PS1="\u@\h:\[\e[00;36m\][\w]\[\e[00;33m\] \$(git_branch_name)\[\e[0m\]\$ "
 
 # Visual
 export CLICOLOR=1

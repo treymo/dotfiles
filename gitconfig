@@ -1,6 +1,6 @@
 [core]
 	editor = vim
-	excludesfile = /home/trey/.gitignore
+	excludesfile = ~/.gitignore
 [user]
 	name = Trey Moore
 	email = trey.mo@gmail.com

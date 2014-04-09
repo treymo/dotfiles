@@ -10,6 +10,7 @@ Bundle 'gregsexton/MatchTag'
 Bundle 'maciakl/vim-neatstatus'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
+" -> Install pylint, rubylint, etc
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-endwise'
@@ -64,6 +65,7 @@ set autoindent
 " -----Language Specific Settings -----
 au BufNewFile,BufRead *.xm setlocal ft=objc
 au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+au FileType python setlocal ts=4 sts=4 sw=4
 
 " -----Status Bar -----
 set laststatus=2

@@ -17,5 +17,7 @@
 [alias]
 	d = difftool
 	st = status
+  co = checkout
+  br = branch
 [push]
 	default = simple

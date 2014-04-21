@@ -6,11 +6,11 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
+Bundle 'bling/vim-airline'
 Bundle 'gregsexton/MatchTag'
-Bundle 'maciakl/vim-neatstatus'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
-" -> Install pylint, rubylint, etc
+    " -> Install pylint, rubylint, etc
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-endwise'

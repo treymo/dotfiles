@@ -7,6 +7,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
+Bundle 'edkolev/tmuxline.vim'
 Bundle 'gregsexton/MatchTag'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
@@ -70,7 +71,8 @@ au FileType python setlocal ts=4 sts=4 sw=4
 " -----Status Bar -----
 set laststatus=2
 " TODO: Figure out powerline fonts in airline
-"let g:airline_powerline_fonts = 1  " Show symbols in the status bar
+" let g:airline_powerline_fonts = 1  " Show symbols in the status bar
+let g:tmuxline_powerline_separators = 0
 
 " -----Visual-----
 set number " line numbers

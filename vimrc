@@ -69,6 +69,8 @@ au FileType python setlocal ts=4 sts=4 sw=4
 
 " -----Status Bar -----
 set laststatus=2
+" TODO: Figure out powerline fonts in airline
+"let g:airline_powerline_fonts = 1  " Show symbols in the status bar
 
 " -----Visual-----
 set number " line numbers

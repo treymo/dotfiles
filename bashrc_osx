@@ -9,7 +9,5 @@ alias gco='git co'
 alias gci='git ci'
 alias grb='git rb'
 
-# Auto Completion
-if [ -f `brew --prefix`/etc/bash_completion.d/rails.bash ]; then
-  source `brew --prefix`/etc/bash_completion.d/rails.bash
-fi
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

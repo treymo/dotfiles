@@ -68,11 +68,14 @@ au BufNewFile,BufRead *.xm setlocal ft=objc
 au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 au FileType python setlocal ts=4 sts=4 sw=4
 
-" -----Status Bar -----
+" -----Status Bar-----
 set laststatus=2
 " TODO: Figure out powerline fonts in airline
 " let g:airline_powerline_fonts = 1  " Show symbols in the status bar
 let g:tmuxline_powerline_separators = 0
+
+" -----Syntastic-----
+let g:syntastic_python_checkers = ['flake8', 'pep8']
 
 " -----Visual-----
 set number " line numbers

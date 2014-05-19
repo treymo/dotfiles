@@ -11,7 +11,7 @@ Bundle 'edkolev/tmuxline.vim'
 Bundle 'gregsexton/MatchTag'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
-    " -> Install pylint, rubylint, etc
+    " -> Install flake8, pep8, rubylint, etc
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-endwise'
@@ -26,7 +26,11 @@ if has("autocmd")
   au bufwritepost .vimrc source $MYVIMRC "Source the vimrc file on save
 endif
 
+
 " -----Basic Settings-----
+" Close Omni-Completion window when a selection is made.
+autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 colorscheme elflord
 syntax on
 set background=dark
@@ -34,6 +38,7 @@ set backspace=2
 set incsearch
 set ignorecase
 set smartcase
+
 
 " -----Formatting-----
 set textwidth=80

@@ -3,8 +3,8 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'edkolev/tmuxline.vim'

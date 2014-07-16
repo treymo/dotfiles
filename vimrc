@@ -3,22 +3,23 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Bundle 'gmarik/vundle'
-Bundle 'bling/vim-airline'
-Bundle 'edkolev/tmuxline.vim'
-Bundle 'gregsexton/MatchTag'
-Bundle 'Raimondi/delimitMate'
-Bundle 'scrooloose/syntastic'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'gregsexton/MatchTag'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/syntastic'
     " -> Install flake8, pep8, rubylint, etc
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'Valloric/YouCompleteMe'
 
+call vundle#end()
 filetype plugin indent on
 
 " -----Autocmd-----
@@ -74,9 +75,9 @@ au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 au FileType python setlocal ts=4 sts=4 sw=4
 
 " -----Status Bar-----
+"  Make sure terminal supports 256 colors for vim-airline.
 set laststatus=2
-" TODO: Figure out powerline fonts in airline
-" let g:airline_powerline_fonts = 1  " Show symbols in the status bar
+let g:airline_powerline_fonts = 1  " Show symbols in the status bar
 let g:tmuxline_powerline_separators = 0
 
 " -----Syntastic-----

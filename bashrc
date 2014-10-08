@@ -8,16 +8,6 @@ function git_branch_name() {
 }
 export PS1="\u@\h:\[\e[00;36m\][\w]\[\e[00;33m\] \$(git_branch_name)\[\e[0m\]\$ "
 
-# Visual
-# enable color support of ls and also add handy aliases
-eval `dircolors -b`
-alias ls='ls --color=auto'
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-platform='unknown'
 unamestr=$(uname)
 if [[ "$unamestr" == 'Darwin' ]]; then
   source ~/.bashrc_osx

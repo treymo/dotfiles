@@ -1,5 +1,4 @@
 # Aliases
-alias gdb='gdb -q'
 alias ll='ls -al'
 alias tmux='tmux -2' # 256 colors in tmux
 

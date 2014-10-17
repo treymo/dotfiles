@@ -1,6 +1,7 @@
 # Aliases
+alias gdb='gdb -q'
 alias ll='ls -al'
-alias tmux="TERM=screen-256color tmux" # Fix colors in tmux
+alias tmux='tmux -2' # 256 colors in tmux
 
 # Prompt
 function git_branch_name() {

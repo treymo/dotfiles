@@ -12,17 +12,20 @@ files="bashrc bashrc_osx gitconfig gitignore tmux.conf vimrc "    # list of file
 
 ##########
 
-# create dotfiles_old in homedir
+# TODO: get rid of all the error messages if there is nothing to backup.
+
+# create dotfiles_old in homedir.
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
 echo "...done"
 
-# change to the dotfiles directory
+# change to the dotfiles directory.
 echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create
+# symlinks.
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     if [ -f $file ]
@@ -33,3 +36,8 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+# install vundle so we can install the rest of the vim plugins.
+echo "\n\n ---------- Installing Vundle ----------
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+

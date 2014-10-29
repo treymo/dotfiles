@@ -5,8 +5,11 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
+    " -> Install powerline fonts,
+    "  https://powerline.readthedocs.org/en/master/installation/linux.html
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'gregsexton/MatchTag'
 Plugin 'Raimondi/delimitMate'
@@ -32,9 +35,10 @@ endif
 " Close Omni-Completion window when a selection is made.
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
-colorscheme elflord
-syntax on
+syntax enable
 set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 set backspace=2
 set incsearch
 set ignorecase

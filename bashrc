@@ -4,7 +4,7 @@ alias ll='ls -al --color=auto'
 alias tmux='tmux -2' # 256 colors in tmux
 
 #Colors
-export TERM=xterm-256color
+export TERM=screen-256color
 
 # Prompt
 function git_branch_name() {

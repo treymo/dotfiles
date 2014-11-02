@@ -55,6 +55,8 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " -----Map Keys-----
 inoremap jj <Esc>
+nmap j gj
+nmap k gk
 nmap <C-J> <C-W>j<C-W>_
 nmap <C-K> <C-W>k<C-W>_
 nmap <C-H> <C-W>h

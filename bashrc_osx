@@ -1,3 +1,8 @@
+
+# Alias changes for OSX
+unalias ls
+alias ll='ls -al'
+
 # Path
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:/usr/local/opt/ruby/bin
@@ -6,9 +11,6 @@ export PATH=/usr/local/git/bin:/usr/local/sbin:$PATH
 
 # OSX Git completion
 source ~/.git-completion.bash
-alias gco='git co'
-alias gci='git ci'
-alias grb='git rb'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

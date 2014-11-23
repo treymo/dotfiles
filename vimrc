@@ -12,6 +12,7 @@ Plugin 'bling/vim-airline'
     "  https://powerline.readthedocs.org/en/master/installation/linux.html
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'gregsexton/MatchTag'
+Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
     " -> Install flake8, pep8, rubylint, etc
@@ -27,9 +28,8 @@ filetype plugin indent on
 
 " -----Autocmd-----
 if has("autocmd")
-  au bufwritepost .vimrc source $MYVIMRC "Source the vimrc file on save
+  au bufwritepost .vimrc source $MYVIMRC " Source the vimrc file on save
 endif
-
 
 " -----Basic Settings-----
 " Close Omni-Completion window when a selection is made.
@@ -44,6 +44,15 @@ set incsearch
 set ignorecase
 set smartcase
 
+" -----CtrlP-----
+let g:ctrlp_working_path_mode = 'ra'
+" Ignore these directories
+set wildignore+=*/build/**
+" " disable caching
+let g:ctrlp_use_caching=0
+
+" -----Eclim-----
+let g:EclimCompletionMethod = 'omnifunc'
 
 " -----Formatting-----
 set textwidth=80
@@ -52,6 +61,18 @@ au FileType java setlocal textwidth=100
 au VimEnter,ColorScheme * highlight ExtraWhitespace guibg=red ctermbg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
+
+" -----Indentation-----
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+set autoindent
+
+" -----Language Specific Settings -----
+au BufNewFile,BufRead *.xm setlocal ft=objc
+au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+au FileType python setlocal ts=4 sts=4 sw=4
 
 " -----Map Keys-----
 inoremap jj <Esc>
@@ -67,18 +88,6 @@ vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 let mapleader = ","
 nmap <leader>ne :NERDTree<cr>
-
-" -----Indentation-----
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
-set autoindent
-
-" -----Language Specific Settings -----
-au BufNewFile,BufRead *.xm setlocal ft=objc
-au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-au FileType python setlocal ts=4 sts=4 sw=4
 
 " -----Status Bar-----
 "  Make sure terminal supports 256 colors for vim-airline.

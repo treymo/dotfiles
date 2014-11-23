@@ -15,9 +15,10 @@
 [difftool]
 	prompt = false
 [alias]
+  br = branch
+  co = checkout
+  cm = commit
 	d = difftool
 	st = status
-  	co = checkout
-  	br = branch
 [push]
 	default = simple

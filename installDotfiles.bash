@@ -38,6 +38,6 @@ for file in $files; do
 done
 
 # install vundle so we can install the rest of the vim plugins.
-echo "\n\n ---------- Installing Vundle ----------
+echo -e "\n\n ---------- Installing Vundle ----------"
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 

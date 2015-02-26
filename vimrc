@@ -6,16 +6,19 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
     " -> Install powerline fonts,
     "  https://powerline.readthedocs.org/en/master/installation/linux.html
+Plugin 'einars/js-beautify'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'gregsexton/MatchTag'
+Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'kien/ctrlp.vim'
+Plugin 'maksimr/vim-jsbeautify' " Install  interpreter: nodejs or v8.
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
-    " -> Install flake8, pep8, rubylint, etc
+    " -> Install (separately) flake8, rubylint, etc.
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-endwise'
@@ -96,7 +99,7 @@ let g:airline_powerline_fonts = 1  " Show symbols in the status bar
 let g:tmuxline_powerline_separators = 0
 
 " -----Syntastic-----
-let g:syntastic_python_checkers = ['flake8', 'pep8']
+let g:syntastic_python_checkers = ['flake8']
 
 " -----Visual-----
 set number " line numbers
@@ -104,6 +107,13 @@ set nohlsearch " highlight search results
 
 " -----Windows-----
 set wmh=0
+
+" -----YouCompleteMe-----
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_use_ultisnips_completer = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
 
 " -----Custom Functions-----
 :command! DTWS :%s/\s\+$//g

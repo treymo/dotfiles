@@ -9,9 +9,10 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
     " -> Install powerline fonts,
     "  https://powerline.readthedocs.org/en/master/installation/linux.html
+Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'einars/js-beautify'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'edkolev/tmuxline.vim'
 Plugin 'gregsexton/MatchTag'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'kien/ctrlp.vim'

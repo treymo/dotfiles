@@ -27,7 +27,6 @@ GRADLE_HOME=/opt/gradle-2.2.1
 # Virtualenv wrapper
 export WORKON_HOME=~/.ve
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.4
-source /usr/local/bin/virtualenvwrapper.sh
 
 # -------------------------
 

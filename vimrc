@@ -87,7 +87,6 @@ nmap <leader>ne :NERDTree<cr>
 "  Make sure terminal supports 256 colors for vim-airline.
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 0  " Show symbols in the status bar
 
 " -----Syntastic-----
 let g:syntastic_python_checkers = ['flake8']

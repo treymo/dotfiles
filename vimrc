@@ -1,4 +1,3 @@
-
 " -----Vundle-----
 set nocompatible
 filetype off
@@ -34,6 +33,9 @@ au bufwritepost .vimrc source $MYVIMRC " Source the vimrc file on save
 
   " Manage tmux window names
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+
+autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+
 
 " -----Basic Settings-----
 " Close Omni-Completion window when a selection is made.

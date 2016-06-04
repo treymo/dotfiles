@@ -1,43 +1,47 @@
 #!/bin/bash
 ############################
-# .make.sh
-# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
+# installDotfiles.sh
+# This script creates symlinks in the home directory to all the dotfiles in this
+# directory.
 ############################
 
 ########## Variables
 
-dir=~/.dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc bashrc_osx gitconfig gitignore tmux.conf vimrc "    # list of files/folders to symlink in homedir
+THIS_FILE=`basename "$0"`
+BACKUP_DIR=~/dotfiles_old
+CURRENT_DIR_CONTENTS=`ls`
+NEW_DOTFILES=( ${CURRENT_DIR_CONTENTS[@]/$THIS_FILE/} )
 
-##########
-
-# TODO: get rid of all the error messages if there is nothing to backup.
+echo "Dotfiles to install:"
+echo "'${NEW_DOTFILES[@]}'"
+echo
 
 # create dotfiles_old in homedir.
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-echo "...done"
-
-# change to the dotfiles directory.
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
+echo "Creating '$BACKUP_DIR' to back up existing dotfiles."
+mkdir -p $BACKUP_DIR
+echo
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create
 # symlinks.
-for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    if [ -f $file ]
-      then
-        echo "Moving ~/.$file to ~/dotfiles_old/."
-        mv ~/.$file ~/dotfiles_old/
-    fi
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+echo "Backing up existing dotfiles and creating new symlinks:"
+for NEW_DOTFILE in ${NEW_DOTFILES[*]}; do
+  FINAL_DOTFILE_NAME=~/.$NEW_DOTFILE  # Append a '.' to the front of the file name.
+  if [ -a $FINAL_DOTFILE_NAME ]; then
+    mv $FINAL_DOTFILE_NAME ~/dotfiles_old/
+    echo "Existing file '$FINAL_DOTFILE_NAME' backed up in: '~/dotfiles_old/'."
+  fi
+  ln -s $PWD/$NEW_DOTFILE $FINAL_DOTFILE_NAME
 done
 
 # install vundle so we can install the rest of the vim plugins.
-echo -e "\n\n ---------- Installing Vundle ----------"
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+  echo -e "\n\n ---------- Installing Vundle ----------"
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
 
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  echo -e "\n\n ---------- Installing Tmux Plugin Manager ----------"
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+echo
+echo "Dotfile installation complete."

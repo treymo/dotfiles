@@ -24,8 +24,3 @@ export PATH=$HOME/local/bin:$PATH
 # Virtualenv wrapper
 export WORKON_HOME=~/.ve
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.4
-
-# -------------------------
-
-# Add to path
-export PATH=$PATH:$GRADLE_HOME/bin

@@ -33,7 +33,6 @@ au bufwritepost .vimrc source $MYVIMRC " Source the vimrc file on save
 
   " Manage tmux window names
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
-
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
 
 
@@ -71,20 +70,29 @@ au BufNewFile,BufRead *.xm setlocal ft=objc
 au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 
 " -----Map Keys-----
-inoremap jj <Esc>
+let mapleader = ","
+set pastetoggle=<F2>
+
+" Mappings for all modes
+map <F5> :setlocal spell! spelllang=en_us<CR>
+noremap <tab> :bnext<CR>
+noremap <s-tab> :bprevious<CR>
+map <C-n> :NERDTreeToggle<CR>
+
+" Normal Mode Mappings
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
-noremap <tab> :bnext<CR>
-noremap <s-tab> :bprevious<CR>
-set pastetoggle=<F2>
-map <F5> :setlocal spell! spelllang=en_us<CR>
-vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
+nmap <Leader>j :JavaImport
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
-let mapleader = ","
-nmap <leader>ne :NERDTree<cr>
 nmap <F8> :TagbarToggle<CR>
+
+" Insert Mode Mappings
+inoremap jj <Esc>
+
+" Visual Mode Mappings
+vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 
 " -----Status Bar-----
 set laststatus=2
@@ -104,6 +112,7 @@ set nohlsearch " don't highlight search results
 set wmh=0
 
 " -----YouCompleteMe-----
+let g:EclimCompletionMethod = 'omnifunc'
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_seed_identifiers_with_syntax = 1

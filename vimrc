@@ -85,7 +85,7 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
-nmap <Leader>j :JavaImport
+nmap <Leader>j :JavaImport<CR>
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 nmap <F8> :TagbarToggle<CR>
 

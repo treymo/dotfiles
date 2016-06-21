@@ -52,6 +52,7 @@ set smartcase
 
 " -----Formatting-----
 set textwidth=80
+set formatoptions+=t  " To enable textwidth wrapping
 au FileType java setlocal textwidth=100
 " Highlight trailing whitespace
 au VimEnter,ColorScheme * highlight ExtraWhitespace guibg=red ctermbg=red

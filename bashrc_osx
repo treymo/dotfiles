@@ -9,9 +9,6 @@ export PATH=$PATH:/usr/local/opt/ruby/bin
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/git/bin:/usr/local/sbin:$PATH
 
-# OSX Git completion
-source ~/.git-completion.bash
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 

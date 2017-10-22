@@ -16,7 +16,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/syntastic' " -> Also install flake8, rubylint, etc.
+Plugin 'scrooloose/syntastic'
+    " -> Install flake8, rubylint, etc
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-dispatch'
@@ -29,10 +30,12 @@ call vundle#end()
 filetype plugin indent on
 
 " -----Autocmd-----
-au bufwritepost .vimrc source $MYVIMRC " Source the vimrc file on save
+if has("autocmd")
+  au bufwritepost .vimrc source $MYVIMRC "Source the vimrc file on save
+endif
+
 
   " Manage tmux window names
-autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
 
 
@@ -40,6 +43,7 @@ autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " 
 " Close Omni-Completion window when a selection is made.
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+let g:EclimCompletionMethod = 'omnifunc'
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
@@ -96,6 +100,7 @@ inoremap jj <Esc>
 vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 
 " -----Status Bar-----
+"  Make sure terminal supports 256 colors for vim-airline.
 set laststatus=2
 let g:airline_powerline_fonts = 1
 " Airline extensions

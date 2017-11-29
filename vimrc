@@ -73,6 +73,7 @@ set autoindent
 " -----Language Specific Settings -----
 au BufNewFile,BufRead *.xm setlocal ft=objc
 au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+au FileType python setlocal ts=4 sts=4 sw=4
 
 " -----Map Keys-----
 let mapleader = ","
@@ -92,6 +93,10 @@ nmap <C-L> <C-W>l
 nmap <Leader>j :JavaImport<CR>
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 nmap <F8> :TagbarToggle<CR>
+
+" Python specific key mappings
+au FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
+au FileType python map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 
 " Insert Mode Mappings
 inoremap jj <Esc>

@@ -24,6 +24,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'wesQ3/vim-windowswap'
 
 call vundle#end()

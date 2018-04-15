@@ -20,5 +20,6 @@
   cm = commit
 	d = difftool
 	st = status
+	sync = pull --rebase
 [push]
 	default = simple

@@ -48,7 +48,7 @@ let g:EclimCompletionMethod = 'omnifunc'
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme elflord
 set backspace=2
 set incsearch
 set ignorecase

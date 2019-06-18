@@ -17,6 +17,11 @@ unamestr=$(uname)
 if [[ "$unamestr" == 'Darwin' ]]; then
   source ~/.bashrc_osx
 fi
+
+# ----- Modify PATH -----
+
+# pip installs to the ~/.local/bin directory.
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/local/bin:$PATH
 
 # ----- Env Variables -----
@@ -24,3 +29,6 @@ export PATH=$HOME/local/bin:$PATH
 # Virtualenv wrapper
 export WORKON_HOME=~/.ve
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.4
+
+# Disable Ctrl + S
+stty -ixon

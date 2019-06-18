@@ -17,12 +17,12 @@ Plugin 'qpkorr/vim-bufkill'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
-    " -> Install flake8, rubylint, etc
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
+Plugin 'udalov/kotlin-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'wesQ3/vim-windowswap'
@@ -114,6 +114,17 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
 " -----Syntastic-----
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_cpp_checkers = ['clang_tidy']
+let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_checkers = ['flake8']
 
 " -----Visual-----

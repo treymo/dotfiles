@@ -6,8 +6,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
-    " -> Install powerline fonts,
-    "  https://powerline.readthedocs.org/en/master/installation/linux.html
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'gmarik/Vundle.vim'

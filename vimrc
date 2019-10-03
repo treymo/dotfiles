@@ -12,6 +12,7 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'gregsexton/MatchTag'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'jmcantrell/vim-virtualenv'
@@ -123,7 +124,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_cpp_checkers = ['clang_tidy']
+let g:syntastic_cpp_checkers = ['clang_tidy', 'cppclean']
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_checkers = ['flake8']
 

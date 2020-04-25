@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'dense-analysis/ale'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'gregsexton/MatchTag'
@@ -16,7 +17,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'Raimondi/delimitMate'
 Plugin 'rust-lang/rust.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-dispatch'
@@ -35,10 +35,8 @@ if has("autocmd")
   au bufwritepost .vimrc source $MYVIMRC "Source the vimrc file on save
 endif
 
-
-  " Manage tmux window names
+" Manage tmux window names
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
-
 
 " -----Basic Settings-----
 " Close Omni-Completion window when a selection is made.
@@ -113,19 +111,13 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
-" -----Syntastic-----
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_cpp_checkers = ['clang_tidy', 'cppclean']
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_python_checkers = ['flake8']
+" -----ALE (Asynchronous Lint Engine)-----
+let g:airline#extensions#ale#enabled = 1
+highlight ALEWarning ctermbg=DarkMagenta
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+let g:ale_fix_on_save = 1
 
 " -----Visual-----
 set number " show line numbers
@@ -141,6 +133,3 @@ let g:ycm_use_ultisnips_completer = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
-
-" -----Custom Functions-----
-:command! DTWS :%s/\s\+$//g

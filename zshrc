@@ -1,9 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/t/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -58,12 +58,24 @@ ZSH_THEME="af-magic"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  colored-man-pages
+  copydir
+  cp
+  extract
+  git
+  gitignore
+  golang
+  osx
+  pj
+  tmux
+  virtualenv
+  virtualenvwrapper
+  web-search
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,3 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll='ls -al'
 alias weather='curl wttr.in'
+
+# Plugin configuration
+PROJECT_PATHS=(~/dev)
+
+source /usr/local/bin/virtualenvwrapper.sh

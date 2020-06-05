@@ -9,7 +9,7 @@
 
 THIS_FILE=`basename "$0"`
 BACKUP_DIR=~/dotfiles_old
-CURRENT_DIR_CONTENTS=`ls`
+CURRENT_DIR_CONTENTS=`ls | grep -v '\.md'`
 NEW_DOTFILES=( ${CURRENT_DIR_CONTENTS[@]/$THIS_FILE/} )
 
 echo "Dotfiles to install:"
@@ -31,7 +31,16 @@ for NEW_DOTFILE in ${NEW_DOTFILES[*]}; do
     echo "Existing file '$FINAL_DOTFILE_NAME' backed up in: '~/dotfiles_old/'."
   fi
   ln -s $PWD/$NEW_DOTFILE $FINAL_DOTFILE_NAME
+  echo ""
 done
+
+read -p 'Please enter a Jira URL (zsh jira plugin) if used for this machine (default: None): ' jira_url
+if [[ -z "${jira_url// }" ]]; then
+  echo "Not writing a Jira URL file for the ZSH jira plugin"
+else
+  echo "Writing Jira URL file at ~/.jira-url"
+  echo $jira_url >> ~/.jira-url
+fi
 
 # install vundle so we can install the rest of the vim plugins.
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then

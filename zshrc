@@ -69,6 +69,7 @@ plugins=(
   git
   gitignore
   golang
+  jira
   osx
   pj
   tmux

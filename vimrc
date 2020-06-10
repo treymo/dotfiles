@@ -25,6 +25,7 @@ Plugin 'udalov/kotlin-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 call vundle#end()
 filetype plugin indent on

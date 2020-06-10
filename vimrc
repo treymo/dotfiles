@@ -4,7 +4,6 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'dense-analysis/ale'
@@ -35,9 +34,6 @@ if has("autocmd")
   au bufwritepost .vimrc source $MYVIMRC "Source the vimrc file on save
 endif
 
-" Manage tmux window names
-autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
-
 " -----Basic Settings-----
 " Close Omni-Completion window when a selection is made.
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
@@ -45,13 +41,11 @@ autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 let g:EclimCompletionMethod = 'omnifunc'
 syntax enable
 set background=dark
-let g:solarized_termcolors=256
 colorscheme elflord
 set backspace=2
 set incsearch
 set ignorecase
 set smartcase
-
 
 " -----Formatting-----
 set textwidth=80
@@ -111,17 +105,33 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
+" -----Tmux conf-----
+autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+let g:airline#extensions#tmuxline#enabled = 0
+
 " -----ALE (Asynchronous Lint Engine)-----
 let g:airline#extensions#ale#enabled = 1
 highlight ALEWarning ctermbg=DarkMagenta
+let g:ale_open_list = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'go': ['gofmt', 'goimports'],
 \}
 let g:ale_fix_on_save = 1
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
 
+" TODO: Format file in "Vim, Programming (General, Language specific)" categories
 " -----Visual-----
 set number " show line numbers
 set nohlsearch " don't highlight search results
+
+if !&diff
+  au VimEnter * NERDTree
+  " Open NERDTree when not diffing, but don't start the cursor in NT.
+  au VimEnter * 2wincmd w
+  au FileType python,c,cpp,go TagbarOpen
+endif
 
 " -----Windows-----
 set wmh=0
@@ -133,3 +143,32 @@ let g:ycm_use_ultisnips_completer = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
+"
+" -----Tagbar-----
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }

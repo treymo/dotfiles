@@ -62,11 +62,14 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  alias-finder
   colored-man-pages
+  common-aliases
   copydir
   cp
   extract
   git
+  git-auto-fetch
   gitignore
   golang
   jira
@@ -107,10 +110,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias jd='jira dashboard'
 alias ji='jira myissues'
-alias ll='ls -al'
 alias weather='curl wttr.in'
 
 # Plugin configuration
 PROJECT_PATHS=(~/dev)
+ZSH_ALIAS_FINDER_AUTOMATIC=true
 
 source /usr/local/bin/virtualenvwrapper.sh

@@ -83,9 +83,20 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
-nmap <Leader>j :JavaImport<CR>
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 nmap <F8> :TagbarToggle<CR>
+
+nmap <Leader>ga  :Git add %:p<CR>
+nmap <Leader>gb  :Git branch<Space>
+nmap <Leader>gbl :Gblame<CR>
+nmap <Leader>gc  :Gcommit -v -q<CR>
+nmap <Leader>gd  :Gdiff<CR>
+nmap <Leader>gs  :Gstatus<CR>
+nmap <Leader>gpl :Dispatch! git pull<CR>
+
+nmap <Leader>m  :Make!<CR>
+nmap <Leader>mi  :Make! install<CR>
+nmap <Leader>mr  :Make! run<CR>
 
 " Python specific key mappings
 au FileType python map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>

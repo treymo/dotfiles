@@ -1,6 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH=$PATH:$(go env GOPATH)/bin
+typeset -U path
+path=($(go env GOPATH)/bin
+      /Users/treymoore/Library/Python/2.7/bin
+      $path)
+export PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/$USER/.oh-my-zsh"
@@ -66,6 +71,7 @@ plugins=(
   colored-man-pages
   common-aliases
   copydir
+  copyfile
   cp
   extract
   git
@@ -108,6 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gopp='go tool pprof -http=:9292'
 alias jd='jira dashboard'
 alias ji='jira myissues'
 alias weather='curl wttr.in'

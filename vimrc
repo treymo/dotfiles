@@ -8,6 +8,7 @@ Plugin 'bling/vim-airline'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'dense-analysis/ale'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'fatih/vim-go'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'gregsexton/MatchTag'
 Plugin 'jmcantrell/vim-virtualenv'
@@ -95,8 +96,8 @@ nmap <Leader>gd  :Gdiff<CR>
 nmap <Leader>gs  :Gstatus<CR>
 nmap <Leader>gpl :Dispatch! git pull<CR>
 
-nmap <Leader>m  :Make!<CR>
-nmap <Leader>mi  :Make! install<CR>
+nmap <Leader>m  :Make<CR>
+nmap <Leader>mi  :Make install<CR>
 nmap <Leader>mr  :Make! run<CR>
 
 " Python specific key mappings
@@ -130,6 +131,9 @@ let g:ale_fixers = {
 \   'go': ['gofmt', 'goimports'],
 \}
 let g:ale_fix_on_save = 1
+let g:ale_linters = {
+\   'go': ['gofmt', 'golint', 'gopls', 'govet'],
+\}
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '.'
 
@@ -138,6 +142,7 @@ let g:ale_sign_warning = '.'
 set number " show line numbers
 set nohlsearch " don't highlight search results
 
+" TODO: and file name not COMMIT_EDITMSG
 if !&diff
   au VimEnter * NERDTree
   " Open NERDTree when not diffing, but don't start the cursor in NT.
@@ -147,6 +152,9 @@ endif
 
 " -----Windows-----
 set wmh=0
+
+" -----Dispatch-----
+au FileType go let b:dispatch = 'GoTest'
 
 " -----YouCompleteMe-----
 let g:EclimCompletionMethod = 'omnifunc'

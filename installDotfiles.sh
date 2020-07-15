@@ -43,7 +43,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   esac
 fi
 
-echo ""
+echo
 read -p 'Please enter a Jira URL (zsh jira plugin) if used for this machine (default: None): ' jira_url
 if [[ -z "${jira_url// }" ]]; then
   echo "Not writing a Jira URL file for the ZSH jira plugin"
@@ -61,6 +61,8 @@ fi
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   echo -e "\n\n ---------- Installing Tmux Plugin Manager ----------"
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  echo
+  ~/.tmux/plugins/tpm/bin/install_plugins
 fi
 echo
 echo "Dotfile installation complete."

@@ -35,7 +35,7 @@ for NEW_DOTFILE in ${NEW_DOTFILES[*]}; do
 done
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  read -p "Install powerline fonts?" yn
+  read -p "Install powerline fonts? " yn
   case $yn in
       [Yy]* ) sudo apt-get install fonts-powerline;;
       [Nn]* ) echo "";;
@@ -43,6 +43,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   esac
 fi
 
+echo ""
 read -p 'Please enter a Jira URL (zsh jira plugin) if used for this machine (default: None): ' jira_url
 if [[ -z "${jira_url// }" ]]; then
   echo "Not writing a Jira URL file for the ZSH jira plugin"

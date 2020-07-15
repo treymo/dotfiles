@@ -31,8 +31,17 @@ for NEW_DOTFILE in ${NEW_DOTFILES[*]}; do
     echo "Existing file '$FINAL_DOTFILE_NAME' backed up in: '~/dotfiles_old/'."
   fi
   ln -s $PWD/$NEW_DOTFILE $FINAL_DOTFILE_NAME
-  echo ""
+  echo "Installed dotfile: '$FINAL_DOTFILE_NAME'"
 done
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  read -p "Install powerline fonts?" yn
+  case $yn in
+      [Yy]* ) sudo apt-get install fonts-powerline;;
+      [Nn]* ) echo "";;
+      * ) echo "Please answer yes or no.";;
+  esac
+fi
 
 read -p 'Please enter a Jira URL (zsh jira plugin) if used for this machine (default: None): ' jira_url
 if [[ -z "${jira_url// }" ]]; then

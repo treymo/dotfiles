@@ -40,7 +40,6 @@ endif
 " Close Omni-Completion window when a selection is made.
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
-let g:EclimCompletionMethod = 'omnifunc'
 syntax enable
 set background=dark
 colorscheme elflord
@@ -157,7 +156,6 @@ set wmh=0
 au FileType go let b:dispatch = 'GoTest'
 
 " -----YouCompleteMe-----
-let g:EclimCompletionMethod = 'omnifunc'
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_seed_identifiers_with_syntax = 1

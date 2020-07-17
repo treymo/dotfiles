@@ -3,7 +3,8 @@
 # export PATH=$PATH:$(go env GOPATH)/bin
 typeset -U path
 path=($(go env GOPATH)/bin
-      /Users/treymoore/Library/Python/2.7/bin
+      ~/Library/Python/2.7/bin
+      ~/.gem/ruby/2.6.0/bin
       $path)
 export PATH
 

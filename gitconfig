@@ -1,9 +1,12 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+	hooksPath = ~/.git/hooks
+
 [user]
 	name = Trey Moore
 	email = trey.mo@gmail.com
+
 [merge]
 	tool = vimdiff
 [color]

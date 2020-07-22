@@ -34,6 +34,10 @@ for NEW_DOTFILE in ${NEW_DOTFILES[*]}; do
   echo "Installed dotfile: '$FINAL_DOTFILE_NAME'"
 done
 
+# Set up default git config
+mkdir  ~/.git
+ln -s $PWD/git/hooks ~/.git/hooks
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   read -p "Install powerline fonts? " yn
   case $yn in

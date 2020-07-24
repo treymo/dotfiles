@@ -35,8 +35,8 @@ for NEW_DOTFILE in ${NEW_DOTFILES[*]}; do
 done
 
 # Set up default git config
-mkdir  ~/.git
-ln -s $PWD/git/hooks ~/.git/hooks
+mkdir  ~/.git/hooks
+ln -s $PWD/git/hooks/pre-commit ~/.git/hooks/pre-commit
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   read -p "Install powerline fonts? " yn

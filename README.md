@@ -1,5 +1,5 @@
 # dotfiles
-Dotfiles for the essentials, including some os x setup.
+Dotfiles for the essentials
 
 ## Installation
 1. Make sure the latest `vim` version is installed with Python support. This

@@ -21,6 +21,11 @@ echo "Creating '$BACKUP_DIR' to back up existing dotfiles."
 mkdir -p $BACKUP_DIR
 echo
 
+echo "Installing zsh and oh-my-zsh."
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chsh -s /bin/zsh $USER
+
 # move any existing dotfiles in homedir to dotfiles_old directory, then create
 # symlinks.
 echo "Backing up existing dotfiles and creating new symlinks:"
@@ -56,11 +61,14 @@ else
   echo $jira_url >> ~/.jira-url
 fi
 
+
 # install vundle so we can install the rest of the vim plugins.
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
   echo -e "\n\n ---------- Installing Vundle ----------"
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
+
+apt install libevent-dev libncurses5-dev libncursesw5-dev
 
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   echo -e "\n\n ---------- Installing Tmux Plugin Manager ----------"
@@ -70,3 +78,5 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
 fi
 echo
 echo "Dotfile installation complete."
+
+echo "Log out and back in to switch to zsh."

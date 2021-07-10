@@ -3,13 +3,16 @@
 # export PATH=$PATH:$(go env GOPATH)/bin
 typeset -U path
 path=($(go env GOPATH)/bin
+      /opt/flutter/bin
       ~/Library/Python/2.7/bin
+      ~/.cargo/bin
+      ~/.local/bin
       ~/.gem/ruby/2.6.0/bin
       $path)
 export PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/$USER/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -100,6 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # Preferred editor
 export EDITOR='vim'
 
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -120,4 +125,4 @@ alias weather='curl wttr.in'
 PROJECT_PATHS=(~/dev)
 ZSH_ALIAS_FINDER_AUTOMATIC=true
 
-source /usr/local/bin/virtualenvwrapper.sh
+source ~/.local/bin/virtualenvwrapper.sh
